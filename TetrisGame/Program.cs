@@ -7,14 +7,39 @@ namespace TetrisGame
         static void Main(string[] args)
         {
             Board board = new Board();
-            Piece pieceO = new Piece('O', 5, 3);
+            Piece activePiece;
 
-            board.AddPiece(pieceO);
+            int activeRow = 0;
+            int activeColumn = 4;
+
+            Piece oPiece = new Piece('O', activeRow, activeColumn);
+            Piece lPiece = new Piece('L', activeRow, activeColumn);
+            activePiece = oPiece;
+
+            board.PrintBoard(activePiece);
+            Console.WriteLine();
+            Console.WriteLine();
+
+            while (board.MoveDown(activePiece))
+            {
+              
+            }
+            board.AddPiece(activePiece);
 
             board.PrintBoard();
 
+            activePiece = lPiece;
 
-            
+            Console.WriteLine();
+            Console.WriteLine();
+
+            while (board.MoveDown(activePiece))
+            {
+
+            }
+            board.AddPiece(activePiece);
+
+            board.PrintBoard();
         }
     }
 }

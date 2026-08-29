@@ -34,13 +34,24 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Detecção inicial de colisões
 
+- Detecção de colisões
+
+- Separação entre peça ativa e blocos fixos
+
+- Exibição da peça ativa no tabuleiro
+
+- Movimento da peça para baixo
+
+- Fixação da peça ao colidir
+
+
 
 
 ## Em desenvolvimento
 
-
-
 - Movimento das peças
+
+- Movimento para esquerda e direita
 
 - Queda automática
 
@@ -51,4 +62,6 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 - Pontuação
 
 - Game Over
+
+- Input e loop principal do jogo
 

@@ -4,13 +4,13 @@
     {
         private int[,] _shape;
 
-        public int Row { get; set; }
-        public int Column { get; set; }
+        public int ActiveRow { get; set; }
+        public int ActiveColumn { get; set; }
 
-        public Piece(char piece, int row, int column)
+        public Piece(char piece, int activeRow, int activeColumn)
         {
-            Row = row;
-            Column = column;
+            ActiveRow = activeRow;
+            ActiveColumn = activeColumn;
 
             if(piece == 'O')
             {
@@ -18,6 +18,15 @@
                 { 
                   { 1, 1 },
                   { 1, 1 } 
+                };
+            }
+            else if(piece == 'L')
+            {
+                _shape = new int[3, 2]
+                {
+                  { 1, 0 },
+                  { 1, 0 },
+                  { 1, 1 }
                 };
             }
         }
