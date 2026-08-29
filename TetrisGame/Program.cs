@@ -1,4 +1,5 @@
 ﻿using TetrisGame.Entities;
+using TetrisGame.Entities.Enums;
 
 namespace TetrisGame
 {
@@ -11,9 +12,9 @@ namespace TetrisGame
             int activeRow = 0;
             int activeColumn = 4;
 
-            for(int i = 0; i < 20; i++)
+            while(true)
             { 
-                Piece oPiece = new Piece('O', activeRow, activeColumn);
+                Piece oPiece = new Piece(PieceType.O, activeRow, activeColumn);
                 activePiece = oPiece;
 
                 if (board.CanPlacePiece(activePiece) == false)

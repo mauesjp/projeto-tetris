@@ -1,4 +1,6 @@
-﻿namespace TetrisGame.Entities
+﻿using TetrisGame.Entities.Enums;
+
+namespace TetrisGame.Entities
 {
     internal class Piece
     {
@@ -7,12 +9,12 @@
         public int ActiveRow { get; set; }
         public int ActiveColumn { get; set; }
 
-        public Piece(char piece, int activeRow, int activeColumn)
+        public Piece(PieceType pieceType, int activeRow, int activeColumn)
         {
             ActiveRow = activeRow;
             ActiveColumn = activeColumn;
 
-            if(piece == 'O')
+            if(pieceType == PieceType.O)
             {
                 _shape = new int[2, 2] 
                 { 
@@ -20,7 +22,7 @@
                   { 1, 1 } 
                 };
             }
-            else if(piece == 'L')
+            else if(pieceType == PieceType.L)
             {
                 _shape = new int[3, 2]
                 {
