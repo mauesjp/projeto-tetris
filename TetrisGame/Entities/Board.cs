@@ -106,9 +106,24 @@
         }
 
 
-        public bool MoveDown(Piece activePiece)
+        public bool MoveDown(Piece activePiece) // logica para mover a peça para baixo
         {
-            activePiece.ActiveRow = activePiece.ActiveRow + 1;
+            activePiece.ActiveRow = activePiece.ActiveRow + 1; // adiciona uma linha a linha atual
+
+            if (CanPlacePiece(activePiece)) // verifica se pode colocar a peça 
+            {
+                return true;
+            }
+            else
+            {
+                activePiece.ActiveRow = activePiece.ActiveRow - 1; // se nao puder retira a linha adicionada e mantem a peça na mesma posiçao original
+                return false;
+            }
+        }
+
+        public bool MoveLeft(Piece activePiece)
+        {
+            activePiece.ActiveColumn = activePiece.ActiveColumn - 1;
 
             if (CanPlacePiece(activePiece))
             {
@@ -116,7 +131,22 @@
             }
             else
             {
-                activePiece.ActiveRow = activePiece.ActiveRow - 1;
+                activePiece.ActiveColumn = activePiece.ActiveColumn + 1;
+                return false;
+            }
+        }
+
+        public bool MoveRight(Piece activePiece)
+        {
+            activePiece.ActiveColumn = activePiece.ActiveColumn + 1;
+
+            if (CanPlacePiece(activePiece))
+            {
+                return true;
+            }
+            else
+            {
+                activePiece.ActiveColumn = activePiece.ActiveColumn - 1;
                 return false;
             }
         }

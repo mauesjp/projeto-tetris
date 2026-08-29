@@ -13,7 +13,7 @@ namespace TetrisGame
             int activeColumn = 4;
 
             Piece oPiece = new Piece('O', activeRow, activeColumn);
-            Piece lPiece = new Piece('L', activeRow, activeColumn);
+            Piece lPiece = new Piece('L', activeRow, 0);
             activePiece = oPiece;
 
             board.PrintBoard(activePiece);
@@ -34,6 +34,12 @@ namespace TetrisGame
             Console.WriteLine();
 
             while (board.MoveDown(activePiece))
+            {
+
+            }
+            
+
+            while (board.MoveRight(activePiece))
             {
 
             }

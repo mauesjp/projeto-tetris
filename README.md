@@ -44,14 +44,12 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Fixação da peça ao colidir
 
-
+- Movimento para esquerda e direita
 
 
 ## Em desenvolvimento
 
 - Movimento das peças
-
-- Movimento para esquerda e direita
 
 - Queda automática
 
