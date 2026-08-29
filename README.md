@@ -46,12 +46,12 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Movimento para esquerda e direita
 
+- Queda automática
+
 
 ## Em desenvolvimento
 
 - Movimento das peças
-
-- Queda automática
 
 - Rotação
 

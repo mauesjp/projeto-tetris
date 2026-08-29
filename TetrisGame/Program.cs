@@ -13,38 +13,30 @@ namespace TetrisGame
             int activeColumn = 4;
 
             Piece oPiece = new Piece('O', activeRow, activeColumn);
-            Piece lPiece = new Piece('L', activeRow, 0);
-            activePiece = oPiece;
-
-            board.PrintBoard(activePiece);
-            Console.WriteLine();
-            Console.WriteLine();
-
-            while (board.MoveDown(activePiece))
-            {
-              
-            }
-            board.AddPiece(activePiece);
-
-            board.PrintBoard();
+            Piece lPiece = new Piece('L', activeRow, activeColumn);
 
             activePiece = lPiece;
 
-            Console.WriteLine();
-            Console.WriteLine();
+            while (board.MoveDown(activePiece))
+            {
+                Console.Clear();
+                board.PrintBoard(activePiece);
+                Thread.Sleep(500);
+            }
+            board.AddPiece(activePiece);
+            Console.Clear();
+            board.PrintBoard();
+
+            activePiece = oPiece;
 
             while (board.MoveDown(activePiece))
             {
-
-            }
-            
-
-            while (board.MoveRight(activePiece))
-            {
-
+                Console.Clear();
+                board.PrintBoard(activePiece);
+                Thread.Sleep(500);
             }
             board.AddPiece(activePiece);
-
+            Console.Clear();
             board.PrintBoard();
         }
     }
