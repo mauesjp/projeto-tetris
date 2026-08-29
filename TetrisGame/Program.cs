@@ -17,27 +17,49 @@ namespace TetrisGame
 
             activePiece = lPiece;
 
-            while (board.MoveDown(activePiece))
-            {
-                Console.Clear();
-                board.PrintBoard(activePiece);
-                Thread.Sleep(500);
-            }
+            FallPiece(board, activePiece);
+
             board.AddPiece(activePiece);
             Console.Clear();
             board.PrintBoard();
 
             activePiece = oPiece;
 
-            while (board.MoveDown(activePiece))
-            {
-                Console.Clear();
-                board.PrintBoard(activePiece);
-                Thread.Sleep(500);
-            }
+            FallPiece(board, activePiece);
+
             board.AddPiece(activePiece);
             Console.Clear();
             board.PrintBoard();
         }
+
+        public static void FallPiece(Board board, Piece activePiece)
+        {
+            while (board.MoveDown(activePiece))
+            {
+
+                if (Console.KeyAvailable)
+                {
+                    ConsoleKeyInfo activeKey = Console.ReadKey(true);
+
+                    if (activeKey.Key == ConsoleKey.RightArrow)
+                    {
+                        board.MoveRight(activePiece);
+                    }
+                    if (activeKey.Key == ConsoleKey.LeftArrow)
+                    {
+                        board.MoveLeft(activePiece);
+                    }
+                    if (activeKey.Key == ConsoleKey.DownArrow)
+                    {
+                        board.MoveDown(activePiece);
+                    }
+                }
+
+                Console.Clear();
+                board.PrintBoard(activePiece);
+                Thread.Sleep(500);
+            }
+        }
     }
+
 }
