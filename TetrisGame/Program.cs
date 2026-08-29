@@ -8,28 +8,27 @@ namespace TetrisGame
         {
             Board board = new Board();
             Piece activePiece;
-
             int activeRow = 0;
             int activeColumn = 4;
 
-            Piece oPiece = new Piece('O', activeRow, activeColumn);
-            Piece lPiece = new Piece('L', activeRow, activeColumn);
+            for(int i = 0; i < 20; i++)
+            { 
+                Piece oPiece = new Piece('O', activeRow, activeColumn);
+                activePiece = oPiece;
 
-            activePiece = lPiece;
+                if (board.CanPlacePiece(activePiece) == false)
+                {
+                    Console.Clear();
+                    Console.WriteLine("PERDEU PLAYBOY!");
+                    break;
+                }
 
-            FallPiece(board, activePiece);
+                FallPiece(board, activePiece);
 
-            board.AddPiece(activePiece);
-            Console.Clear();
-            board.PrintBoard();
-
-            activePiece = oPiece;
-
-            FallPiece(board, activePiece);
-
-            board.AddPiece(activePiece);
-            Console.Clear();
-            board.PrintBoard();
+                board.AddPiece(activePiece);
+                Console.Clear();
+                board.PrintBoard();
+            }
         }
 
         public static void FallPiece(Board board, Piece activePiece)
