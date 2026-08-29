@@ -1,4 +1,4 @@
-\# Tetris em C#
+# Tetris em C#
 
 
 
@@ -6,49 +6,49 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 
 
-\## Tecnologias
+## Tecnologias
 
 
 
-\- C#
+- C#
 
-\- .NET
+- .NET
 
-\- Git
+- Git
 
-\- GitHub
-
-
-
-\## Funcionalidades atuais
+- GitHub
 
 
 
-\- Criação do tabuleiro 20x10
-
-\- Representação de peças através de matriz
-
-\- Posicionamento de peças no tabuleiro
-
-\- Validação dos limites do tabuleiro
-
-\- Detecção inicial de colisões
+## Funcionalidades atuais
 
 
 
-\## Em desenvolvimento
+- Criação do tabuleiro 20x10
+
+- Representação de peças através de matriz
+
+- Posicionamento de peças no tabuleiro
+
+- Validação dos limites do tabuleiro
+
+- Detecção inicial de colisões
 
 
 
-\- Movimento das peças
+## Em desenvolvimento
 
-\- Queda automática
 
-\- Rotação
 
-\- Remoção de linhas completas
+- Movimento das peças
 
-\- Pontuação
+- Queda automática
 
-\- Game Over
+- Rotação
+
+- Remoção de linhas completas
+
+- Pontuação
+
+- Game Over
 
