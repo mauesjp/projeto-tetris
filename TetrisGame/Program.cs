@@ -12,10 +12,13 @@ namespace TetrisGame
             int activeRow = 0;
             int activeColumn = 4;
 
+            Random random = new Random();
+            PieceType[] pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
+
             while(true)
-            { 
-                Piece iPiece = new Piece(PieceType.I, activeRow, activeColumn);
-                activePiece = iPiece;
+            {
+                int randomIndex = random.Next(pieceTypes.Length);
+                activePiece = new Piece(pieceTypes[randomIndex],activeRow, activeColumn);
 
                 if (board.CanPlacePiece(activePiece) == false)
                 {

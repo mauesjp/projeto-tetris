@@ -52,6 +52,8 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Game Over
 
+- Input e loop principal do jogo
+
 
 ## Em desenvolvimento
 
@@ -60,6 +62,3 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 - Remoção de linhas completas
 
 - Pontuação
-
-- Input e loop principal do jogo
-
