@@ -58,7 +58,7 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Remoção de linhas completas
 
+- Pontuação
+
 
 ## Em desenvolvimento
-
-- Pontuação

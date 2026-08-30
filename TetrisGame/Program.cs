@@ -14,6 +14,7 @@ namespace TetrisGame
 
             Random random = new Random();
             PieceType[] pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
+            int score = 0;
 
             while (true)
             {
@@ -24,19 +25,23 @@ namespace TetrisGame
                 {
                     Console.Clear();
                     Console.WriteLine("PERDEU PLAYBOY!");
+                    Console.WriteLine();
+                    Console.WriteLine($"SCORE: {score} Points");
                     break;
                 }
 
-                FallPiece(board, activePiece);
+                FallPiece(board, activePiece, score);
 
                 board.AddPiece(activePiece);
-                board.ClearCompletedRows();
+                score += board.ClearCompletedRows() * 100;
                 Console.Clear();
                 board.PrintBoard();
+                Console.WriteLine();
+                Console.WriteLine($"SCORE: {score} Points");
             }
         }
 
-        public static void FallPiece(Board board, Piece activePiece)
+        public static void FallPiece(Board board, Piece activePiece, int score)
         {
             while (board.MoveDown(activePiece))
             {
@@ -66,6 +71,8 @@ namespace TetrisGame
 
                 Console.Clear();
                 board.PrintBoard(activePiece);
+                Console.WriteLine();
+                Console.WriteLine($"SCORE: {score} Points");
                 Thread.Sleep(500);
             }
         }

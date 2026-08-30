@@ -196,21 +196,24 @@
             }
         }
 
-        public void ClearCompletedRows()
+        public int ClearCompletedRows()
         {
             int row = _board.GetLength(0) - 1;
+            int clearedRows = 0;
             
             while(row >= 0)
             {
                 if (IsRowComplete(row))
                 {
                     ClearRow(row);
+                    clearedRows++;
                 }
                 else
                 {
                     row--;
                 }
             }
+            return clearedRows;
         }
     }
 }
