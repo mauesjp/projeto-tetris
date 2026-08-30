@@ -30,6 +30,7 @@ namespace TetrisGame
                 FallPiece(board, activePiece);
 
                 board.AddPiece(activePiece);
+                board.ClearCompletedRows();
                 Console.Clear();
                 board.PrintBoard();
             }

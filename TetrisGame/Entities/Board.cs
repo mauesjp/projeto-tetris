@@ -16,8 +16,8 @@
                     int pieceColumn = column - activePiece.ActiveColumn; //variavel que armazena o valor convertido da coluna da peça no tabuleiro 
 
                     bool isInsidePiece = pieceRow >= 0 // verifica se pieceRow e pieceColumn estão dentro da matriz da peça
-                        && pieceRow < activePiece.GetHeight() 
-                        && pieceColumn >= 0 
+                        && pieceRow < activePiece.GetHeight()
+                        && pieceColumn >= 0
                         && pieceColumn < activePiece.GetWidth();
 
                     if (isInsidePiece)
@@ -65,7 +65,7 @@
         {
             if (CanPlacePiece(piece))
             {
-                for (int rowPiece = 0; rowPiece < piece.GetHeight(); rowPiece++) 
+                for (int rowPiece = 0; rowPiece < piece.GetHeight(); rowPiece++)
                 {
                     for (int columnPiece = 0; columnPiece < piece.GetWidth(); columnPiece++)
                     {
@@ -90,7 +90,7 @@
                     if (piece.GetCell(rowPiece, columnPiece) == 1) // verifica a celula da peça para saber o formato 
                     {
                         if (boardRow < 0 || boardRow >= _board.GetLength(0) // verifica se a celula da peça está fora do tabuleiro
-                            || boardColumn < 0 
+                            || boardColumn < 0
                             || boardColumn >= _board.GetLength(1))
                         {
                             return false;
@@ -165,6 +165,51 @@
                 activePiece.Rotate();
                 activePiece.Rotate();
                 return false;
+            }
+        }
+
+        public bool IsRowComplete(int row)
+        {
+            for (int i = 0; i < _board.GetLength(1); i++)
+            {
+                if (_board[row, i] == 0)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public void ClearRow(int completedRow)
+        {
+            for (int i = completedRow; i > 0; i--)
+            {
+                for(int j = 0; j < _board.GetLength(1); j++)
+                {
+                    _board[i, j] = _board[i - 1, j];
+                }
+            }
+
+            for(int j = 0; j < _board.GetLength(1); j++)
+            {
+                _board[0, j] = 0;
+            }
+        }
+
+        public void ClearCompletedRows()
+        {
+            int row = _board.GetLength(0) - 1;
+            
+            while(row >= 0)
+            {
+                if (IsRowComplete(row))
+                {
+                    ClearRow(row);
+                }
+                else
+                {
+                    row--;
+                }
             }
         }
     }

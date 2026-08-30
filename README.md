@@ -56,9 +56,9 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Rotação das peças com "R"
 
+- Remoção de linhas completas
+
 
 ## Em desenvolvimento
-
-- Remoção de linhas completas
 
 - Pontuação
