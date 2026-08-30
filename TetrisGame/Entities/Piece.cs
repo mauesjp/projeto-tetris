@@ -91,5 +91,19 @@ namespace TetrisGame.Entities
         {
             return _shape[row, column];
         }
+
+        public void Rotate()
+        {
+            int[,] newShape = new int[_shape.GetLength(1), _shape.GetLength(0)];
+
+            for(int row = 0; row < _shape.GetLength(0); row++)
+            {
+                for(int column = 0; column < _shape.GetLength(1); column++)
+                {
+                    newShape[column, GetHeight() - 1 - row] = _shape[row, column];
+                }
+            }
+            _shape = newShape;
+        }
     }
 }

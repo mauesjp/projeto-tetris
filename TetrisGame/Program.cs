@@ -15,10 +15,10 @@ namespace TetrisGame
             Random random = new Random();
             PieceType[] pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
 
-            while(true)
+            while (true)
             {
                 int randomIndex = random.Next(pieceTypes.Length);
-                activePiece = new Piece(pieceTypes[randomIndex],activeRow, activeColumn);
+                activePiece = new Piece(pieceTypes[randomIndex], activeRow, activeColumn);
 
                 if (board.CanPlacePiece(activePiece) == false)
                 {
@@ -43,6 +43,11 @@ namespace TetrisGame
                 if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo activeKey = Console.ReadKey(true);
+
+                    if (activeKey.Key == ConsoleKey.R)
+                    {
+                        board.RotatePiece(activePiece);
+                    }
 
                     if (activeKey.Key == ConsoleKey.RightArrow)
                     {

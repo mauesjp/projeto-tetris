@@ -54,10 +54,10 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 - Input e loop principal do jogo
 
+- Rotação das peças com "R"
+
 
 ## Em desenvolvimento
-
-- Rotação
 
 - Remoção de linhas completas
 

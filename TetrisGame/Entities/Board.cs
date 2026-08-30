@@ -150,5 +150,22 @@
                 return false;
             }
         }
+
+        public bool RotatePiece(Piece activePiece)
+        {
+            activePiece.Rotate();
+
+            if (CanPlacePiece(activePiece))
+            {
+                return true;
+            }
+            else
+            {
+                activePiece.Rotate();
+                activePiece.Rotate();
+                activePiece.Rotate();
+                return false;
+            }
+        }
     }
 }
