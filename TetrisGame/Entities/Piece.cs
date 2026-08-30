@@ -31,6 +31,50 @@ namespace TetrisGame.Entities
                   { 1, 1 }
                 };
             }
+            else if(pieceType == PieceType.I)
+            {
+                _shape = new int[4, 1]
+                {
+                  { 1 },
+                  { 1 },
+                  { 1 },
+                  { 1 }
+                };
+            }
+            else if(pieceType == PieceType.T)
+            {
+                _shape = new int[2, 3]
+                {
+                  { 1, 1, 1 },
+                  { 0, 1, 0 }
+                };
+            }
+            else if(pieceType == PieceType.Z)
+            {
+                _shape = new int[2, 3]
+                {
+                  { 1, 1, 0 },
+                  { 0, 1, 1 }
+                };
+            }
+            else if(pieceType == PieceType.S)
+            {
+                _shape = new int[3, 2]
+                {
+                  { 0, 1 },
+                  { 1, 1 },
+                  { 1, 0 }
+                };
+            }
+            else if(pieceType == PieceType.J)
+            {
+                _shape = new int[3, 2]
+                {
+                  { 0, 1 },
+                  { 0, 1 },
+                  { 1, 1 }
+                };
+            }
         }
 
         public int GetHeight()

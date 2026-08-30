@@ -14,8 +14,8 @@ namespace TetrisGame
 
             while(true)
             { 
-                Piece oPiece = new Piece(PieceType.O, activeRow, activeColumn);
-                activePiece = oPiece;
+                Piece iPiece = new Piece(PieceType.I, activeRow, activeColumn);
+                activePiece = iPiece;
 
                 if (board.CanPlacePiece(activePiece) == false)
                 {

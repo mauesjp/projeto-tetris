@@ -3,7 +3,11 @@
     enum PieceType
     {
         O,
-        L
-
+        L,
+        I,
+        T,
+        S,
+        Z,
+        J
     }
 }
