@@ -14,6 +14,7 @@ namespace TetrisGame.Entities
         private const int InitialColumn = 4;
         private const int PointsPerLine = 100;
         private const int FallDelayMilliseconds = 500;
+        private const int InputCheckDelayMilliseconds = 50;
 
         public void Run()
         {
@@ -48,36 +49,44 @@ namespace TetrisGame.Entities
         {
             while (_board.MoveDown(activePiece))
             {
-
-                if (Console.KeyAvailable)
+                for (int i = 0; i < FallDelayMilliseconds / InputCheckDelayMilliseconds; i++)
                 {
-                    ConsoleKeyInfo activeKey = Console.ReadKey(true);
+                    HandleInput(activePiece);
 
-                    if (activeKey.Key == ConsoleKey.R)
-                    {
-                        _board.RotatePiece(activePiece);
-                    }
-
-                    if (activeKey.Key == ConsoleKey.RightArrow)
-                    {
-                        _board.MoveRight(activePiece);
-                    }
-                    if (activeKey.Key == ConsoleKey.LeftArrow)
-                    {
-                        _board.MoveLeft(activePiece);
-                    }
-                    if (activeKey.Key == ConsoleKey.DownArrow)
-                    {
-                        _board.MoveDown(activePiece);
-                    }
+                    Console.Clear();
+                    _board.PrintBoard(activePiece);
+                    Console.WriteLine();
+                    Console.WriteLine($"SCORE: {_score} Points");
+                    Console.WriteLine("Controles: < > mover | V descer | R rotacionar");
+                    Thread.Sleep(InputCheckDelayMilliseconds);
                 }
 
-                Console.Clear();
-                _board.PrintBoard(activePiece);
-                Console.WriteLine();
-                Console.WriteLine($"SCORE: {_score} Points");
-                Console.WriteLine("Controles: < > mover | V descer | R rotacionar");
-                Thread.Sleep(FallDelayMilliseconds);
+            }
+        }
+
+        private void HandleInput(Piece activePiece)
+        {
+            if (Console.KeyAvailable)
+            {
+                ConsoleKeyInfo activeKey = Console.ReadKey(true);
+
+                if (activeKey.Key == ConsoleKey.R)
+                {
+                    _board.RotatePiece(activePiece);
+                }
+
+                if (activeKey.Key == ConsoleKey.RightArrow)
+                {
+                    _board.MoveRight(activePiece);
+                }
+                if (activeKey.Key == ConsoleKey.LeftArrow)
+                {
+                    _board.MoveLeft(activePiece);
+                }
+                if (activeKey.Key == ConsoleKey.DownArrow)
+                {
+                    _board.MoveDown(activePiece);
+                }
             }
         }
     }
