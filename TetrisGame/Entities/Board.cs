@@ -6,8 +6,11 @@
 
         public void PrintBoard(Piece activePiece) // imprime o tabuleiro, recebendo a peça
         {
+            Console.WriteLine("+" + new string('-', 20) + "+");
+
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
+                Console.Write("|");
                 for (int column = 0; column < _board.GetLength(1); column++) // percorre colunas
                 {
                     bool isActivePieceCell = false; // verifica se a peça ocupa a celula que esta sendo verificada, inicia como false pois ainda nao foi verificado
@@ -33,14 +36,18 @@
                         Console.Write(" ."); // senao celula vazia sem pular a linha
                     }
                 }
-                Console.WriteLine(); // pula a linha para imprimir a proxima linha
+                Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
+            Console.WriteLine("+" + new string('-', 20) + "+");
         }
 
         public void PrintBoard() // imprime o tabuleiro, com a peça fixa
         {
+            Console.WriteLine("+" + new string('-', 20) + "+");
+
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
+                Console.Write("|");
                 for (int column = 0; column < _board.GetLength(1); column++) // percorre colunas
                 {
                     if (_board[row, column] != 0) // verificar e imprimir se a matriz principal já possui uma peça naquela celula
@@ -52,8 +59,9 @@
                         Console.Write(" ."); // senao celula vazia sem pular a linha
                     }
                 }
-                Console.WriteLine(); // pula a linha para imprimir a proxima linha
+                Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
+            Console.WriteLine("+" + new string('-', 20) + "+");
         }
 
         public void SetPosition(int row, int column) // grava no tabuleiro a posiçao fixa da peça quando ela parar de cair

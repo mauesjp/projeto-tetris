@@ -73,6 +73,7 @@ namespace TetrisGame
                 board.PrintBoard(activePiece);
                 Console.WriteLine();
                 Console.WriteLine($"SCORE: {score} Points");
+                Console.WriteLine("Controles: < > mover | V descer | R rotacionar");
                 Thread.Sleep(500);
             }
         }
