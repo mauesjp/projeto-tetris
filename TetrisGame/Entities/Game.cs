@@ -4,22 +4,25 @@ namespace TetrisGame.Entities
 {
     internal class Game
     {
-            private readonly Board _board = new Board();
-            private int _score = 0;
+        private readonly Board _board = new Board();
+        private int _score = 0;
 
-            private readonly Random _random = new Random();
-            private readonly PieceType[] _pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
+        private readonly Random _random = new Random();
+        private readonly PieceType[] _pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
+
+        private const int InitialRow = 0;
+        private const int InitialColumn = 4;
+        private const int PointsPerLine = 100;
+        private const int FallDelayMilliseconds = 500;
 
         public void Run()
         {
-            Piece activePiece;
-            int activeRow = 0;
-            int activeColumn = 4;
 
             while (true)
             {
+                Piece activePiece;
                 int randomIndex = _random.Next(_pieceTypes.Length);
-                activePiece = new Piece(_pieceTypes[randomIndex], activeRow, activeColumn);
+                activePiece = new Piece(_pieceTypes[randomIndex], InitialRow, InitialColumn);
 
                 if (_board.CanPlacePiece(activePiece) == false)
                 {
@@ -33,7 +36,7 @@ namespace TetrisGame.Entities
                 FallPiece(activePiece);
 
                 _board.AddPiece(activePiece);
-                _score += _board.ClearCompletedRows() * 100;
+                _score += _board.ClearCompletedRows() * PointsPerLine;
                 Console.Clear();
                 _board.PrintBoard();
                 Console.WriteLine();
@@ -74,7 +77,7 @@ namespace TetrisGame.Entities
                 Console.WriteLine();
                 Console.WriteLine($"SCORE: {_score} Points");
                 Console.WriteLine("Controles: < > mover | V descer | R rotacionar");
-                Thread.Sleep(500);
+                Thread.Sleep(FallDelayMilliseconds);
             }
         }
     }
