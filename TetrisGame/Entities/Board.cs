@@ -10,7 +10,7 @@
 
         public void PrintBoard(Piece activePiece) // imprime o tabuleiro, recebendo a peça
         {
-            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
+            Console.WriteLine(PrintBorder());
 
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
@@ -31,41 +31,27 @@
                     {
                         isActivePieceCell = activePiece.GetCell(pieceRow, pieceColumn) != 0; // se as condiçoes impostas anteriormente forem verdadeiras, verifica o formato da peça usando != 0 para identificar onde há desenho da peça
                     }
-                    if (_board[row, column] != 0 || isActivePieceCell) // utiliza OU para verificar e imprimir se a matriz principal já possui uma peça naquela celula, ou se a nova peça esta naquela celula
-                    {
-                        Console.Write("[]"); // imprime a parte da peça sem pular a linha
-                    }
-                    else
-                    {
-                        Console.Write(" ."); // senao celula vazia sem pular a linha
-                    }
+                    Console.Write(PrintCell(_board[row, column] != 0 || isActivePieceCell));
                 }
                 Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
-            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
+            Console.WriteLine(PrintBorder());
         }
 
         public void PrintBoard() // imprime o tabuleiro, com a peça fixa
         {
-            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
+            Console.WriteLine(PrintBorder());
 
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
                 Console.Write("|");
                 for (int column = 0; column < _board.GetLength(1); column++) // percorre colunas
                 {
-                    if (_board[row, column] != 0) // verificar e imprimir se a matriz principal já possui uma peça naquela celula
-                    {
-                        Console.Write("[]"); // imprime a parte da peça sem pular a linha
-                    }
-                    else
-                    {
-                        Console.Write(" ."); // senao celula vazia sem pular a linha
-                    }
+                    Console.Write(PrintCell(_board[row,column] != 0));
                 }
                 Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
-            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
+            Console.WriteLine(PrintBorder());
         }
 
         public void SetPosition(int row, int column) // grava no tabuleiro a posiçao fixa da peça quando ela parar de cair
@@ -226,6 +212,21 @@
                 }
             }
             return clearedRows;
+        }
+
+        private string PrintBorder()
+        {
+            return "+" + new string('-', Width * Columns) + "+";
+        }
+
+        private string PrintCell(bool isFilled)
+        {
+            if (isFilled)
+            {
+                return "[]";
+            }
+            else
+                return " .";
         }
     }
 }
