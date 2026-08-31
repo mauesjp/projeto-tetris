@@ -4,45 +4,46 @@ namespace TetrisGame.Entities
 {
     internal class Game
     {
+            private readonly Board _board = new Board();
+            private int _score = 0;
+
+            private readonly Random _random = new Random();
+            private readonly PieceType[] _pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
+
         public void Run()
         {
-            Board board = new Board();
             Piece activePiece;
             int activeRow = 0;
             int activeColumn = 4;
 
-            Random random = new Random();
-            PieceType[] pieceTypes = new PieceType[7] { PieceType.O, PieceType.L, PieceType.I, PieceType.T, PieceType.S, PieceType.Z, PieceType.J };
-            int score = 0;
-
             while (true)
             {
-                int randomIndex = random.Next(pieceTypes.Length);
-                activePiece = new Piece(pieceTypes[randomIndex], activeRow, activeColumn);
+                int randomIndex = _random.Next(_pieceTypes.Length);
+                activePiece = new Piece(_pieceTypes[randomIndex], activeRow, activeColumn);
 
-                if (board.CanPlacePiece(activePiece) == false)
+                if (_board.CanPlacePiece(activePiece) == false)
                 {
                     Console.Clear();
                     Console.WriteLine("PERDEU PLAYBOY!");
                     Console.WriteLine();
-                    Console.WriteLine($"SCORE: {score} Points");
+                    Console.WriteLine($"SCORE: {_score} Points");
                     break;
                 }
 
-                FallPiece(board, activePiece, score);
+                FallPiece(activePiece);
 
-                board.AddPiece(activePiece);
-                score += board.ClearCompletedRows() * 100;
+                _board.AddPiece(activePiece);
+                _score += _board.ClearCompletedRows() * 100;
                 Console.Clear();
-                board.PrintBoard();
+                _board.PrintBoard();
                 Console.WriteLine();
-                Console.WriteLine($"SCORE: {score} Points");
+                Console.WriteLine($"SCORE: {_score} Points");
             }
         }
 
-        private static void FallPiece(Board board, Piece activePiece, int score)
+        private void FallPiece(Piece activePiece)
         {
-            while (board.MoveDown(activePiece))
+            while (_board.MoveDown(activePiece))
             {
 
                 if (Console.KeyAvailable)
@@ -51,27 +52,27 @@ namespace TetrisGame.Entities
 
                     if (activeKey.Key == ConsoleKey.R)
                     {
-                        board.RotatePiece(activePiece);
+                        _board.RotatePiece(activePiece);
                     }
 
                     if (activeKey.Key == ConsoleKey.RightArrow)
                     {
-                        board.MoveRight(activePiece);
+                        _board.MoveRight(activePiece);
                     }
                     if (activeKey.Key == ConsoleKey.LeftArrow)
                     {
-                        board.MoveLeft(activePiece);
+                        _board.MoveLeft(activePiece);
                     }
                     if (activeKey.Key == ConsoleKey.DownArrow)
                     {
-                        board.MoveDown(activePiece);
+                        _board.MoveDown(activePiece);
                     }
                 }
 
                 Console.Clear();
-                board.PrintBoard(activePiece);
+                _board.PrintBoard(activePiece);
                 Console.WriteLine();
-                Console.WriteLine($"SCORE: {score} Points");
+                Console.WriteLine($"SCORE: {_score} Points");
                 Console.WriteLine("Controles: < > mover | V descer | R rotacionar");
                 Thread.Sleep(500);
             }
