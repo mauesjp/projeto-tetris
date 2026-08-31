@@ -2,7 +2,7 @@
 
 
 
-Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, programação orientada a objetos e estruturas de dados através da criação de um jogo Tetris.
+Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, programação orientada a objetos e estruturas de dados por meio da criação de um jogo Tetris para console.
 
 
 
@@ -24,41 +24,69 @@ Projeto desenvolvido em C# com o objetivo de praticar lógica de programação, 
 
 
 
-- Criação do tabuleiro 20x10
+- Tabuleiro de 20x10
 
-- Representação de peças através de matriz
+- Sete tetraminós: O, I, T, S, Z, J e L
 
-- Posicionamento de peças no tabuleiro
-
-- Validação dos limites do tabuleiro
-
-- Detecção inicial de colisões
-
-- Detecção de colisões
+- Geração aleatória de peças
 
 - Separação entre peça ativa e blocos fixos
 
-- Exibição da peça ativa no tabuleiro
-
-- Movimento da peça para baixo
-
-- Fixação da peça ao colidir
-
-- Movimento para esquerda e direita
-
 - Queda automática
 
-- Movimento das peças
+- Movimento para a esquerda, direita e baixo
 
-- Game Over
+- Rotação das peças
+
+- Validação dos limites do tabuleiro
+
+- Detecção de colisões
+
+- Fixação das peças
+
+- Limpeza de linhas completas
+
+- Sistema de pontuação
+
+- Detecção de Game Over
 
 - Input e loop principal do jogo
 
-- Rotação das peças com "R"
+- Bordas visuais no tabuleiro
 
-- Remoção de linhas completas
 
-- Pontuação
+## Controles
+
+
+
+- ←: mover para a esquerda
+
+- →: mover para a direita
+
+- ↓: acelerar a descida
+
+- R: rotacionar a peça
+
+
+## Pontuação
+
+
+
+### Cada linha completa removida adiciona 100 pontos à pontuação total.
 
 
 ## Em desenvolvimento
+
+
+
+- Melhorias na resposta dos controles
+
+- Cores diferentes para os tetraminós
+
+- Exibição da próxima peça
+
+- Níveis de dificuldade
+
+- Aumento progressivo da velocidade
+
+- Refatoração e organização das responsabilidades
