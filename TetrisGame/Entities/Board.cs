@@ -2,11 +2,15 @@
 {
     class Board
     {
-        private int[,] _board { get; set; } = new int[20, 10];
+        private const int Rows = 20;
+        private const int Columns = 10;
+        private const int Width = 2;
+
+        private int[,] _board { get; set; } = new int[Rows, Columns];
 
         public void PrintBoard(Piece activePiece) // imprime o tabuleiro, recebendo a peça
         {
-            Console.WriteLine("+" + new string('-', 20) + "+");
+            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
 
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
@@ -38,12 +42,12 @@
                 }
                 Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
-            Console.WriteLine("+" + new string('-', 20) + "+");
+            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
         }
 
         public void PrintBoard() // imprime o tabuleiro, com a peça fixa
         {
-            Console.WriteLine("+" + new string('-', 20) + "+");
+            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
 
             for (int row = 0; row < _board.GetLength(0); row++) // percorre linhas
             {
@@ -61,7 +65,7 @@
                 }
                 Console.WriteLine("|"); // pula a linha para imprimir a proxima linha
             }
-            Console.WriteLine("+" + new string('-', 20) + "+");
+            Console.WriteLine("+" + new string('-', Width * Columns) + "+");
         }
 
         public void SetPosition(int row, int column) // grava no tabuleiro a posiçao fixa da peça quando ela parar de cair
